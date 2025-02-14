@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ativando seu eSIM...</title>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const codigo = urlParams.get('codigo');
+            if (codigo) {
+                const esimLink = `LPA:1$operadora.com$${codigo}`;
+                window.location.href = esimLink;
+            }
+        };
+    </script>
+</head>
+<body>
+    <p>Redirecionando para ativação do eSIM...</p>
+    <p>Se a ativação não iniciar automaticamente, clique <a id="esim-link">aqui</a>.</p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const codigo = urlParams.get('codigo');
+        if (codigo) {
+            document.getElementById("esim-link").href = `LPA:1$operadora.com$${codigo}`;
+        }
+    </script>
+</body>
+</html>
